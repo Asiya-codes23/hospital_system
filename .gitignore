@@ -1,21 +1,44 @@
-# Python cache files
+# ==============================
+# 🐍 Python cache and bytecode
+# ==============================
 __pycache__/
-*.pyc
+*.py[cod]
+*$py.class
 
-# Django
+# ==============================
+# 🧱 Django database and static files
+# ==============================
 db.sqlite3
 /static/
 /staticfiles/
-media/
+/media/
 
-# Virtual environment
-.env
+# ==============================
+# 🌱 Virtual environment folders
+# ==============================
 env/
 venv/
+.env/
 
-# VS Code
+# ==============================
+# 🧰 IDE & Editor settings
+# ==============================
 .vscode/
+.idea/
 
-# OS files
+# ==============================
+# 💻 OS-specific files
+# ==============================
 .DS_Store
 Thumbs.db
+desktop.ini
+
+# ==============================
+# ⚙️ Logs, configs, misc
+# ==============================
+*.log
+*.pot
+*.py~  
+*.tmp
+*.bak
+

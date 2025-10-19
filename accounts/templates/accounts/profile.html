@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profile - Hospital System</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+      min-height: 100vh;
+      padding: 20px;
+    }
+    
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .profile-card {
+      background: white;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+    }
+    
+    h1 {
+      color: #1e3c72;
+      margin-bottom: 10px;
+    }
+    
+    .info-row {
+      padding: 15px;
+      border-bottom: 1px solid #ecf0f1;
+      display: flex;
+      justify-content: space-between;
+    }
+    
+    .info-label {
+      color: #7f8c8d;
+      font-weight: 600;
+    }
+    
+    .info-value {
+      color: #2c3e50;
+    }
+    
+    .btn-group {
+      margin-top: 30px;
+      display: flex;
+      gap: 15px;
+    }
+    
+    .btn {
+      padding: 12px 24px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: transform 0.2s ease;
+      display: inline-block;
+    }
+    
+    .btn-primary {
+      background: #1e3c72;
+      color: white;
+    }
+    
+    .btn-danger {
+      background: #e74c3c;
+      color: white;
+    }
+    
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+  </style>
+</head>
+<body>
+  
+  <div class="container">
+    <div class="profile-card">
+      <h1>👤 User Profile</h1>
+      
+      <div class="info-row">
+        <span class="info-label">Username:</span>
+        <span class="info-value">{{ user.username }}</span>
+      </div>
+      
+      <div class="info-row">
+        <span class="info-label">Email:</span>
+        <span class="info-value">{{ user.email }}</span>
+      </div>
+      
+      <div class="info-row">
+        <span class="info-label">Full Name:</span>
+        <span class="info-value">{{ user.first_name }} {{ user.last_name }}</span>
+      </div>
+      
+      {% if user.profile %}
+      <div class="info-row">
+        <span class="info-label">Role:</span>
+        <span class="info-value">{{ user.profile.get_role_display }}</span>
+      </div>
+      
+      <div class="info-row">
+        <span class="info-label">Phone:</span>
+        <span class="info-value">{{ user.profile.phone_number }}</span>
+      </div>
+      {% endif %}
+      
+      <div class="info-row">
+        <span class="info-label">Date Joined:</span>
+        <span class="info-value">{{ user.date_joined|date:"M d, Y" }}</span>
+      </div>
+      
+      <div class="btn-group">
+        <a href="/" class="btn btn-primary">← Back to Dashboard</a>
+        <a href="/accounts/logout/" class="btn btn-danger">Logout</a>
+      </div>
+    </div>
+  </div>
+  
+</body>
+</html>

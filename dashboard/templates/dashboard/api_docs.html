@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>API Documentation - Hospital System</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f5f5f5;
+      padding: 20px;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      background: white;
+      padding: 40px;
+      border-radius: 12px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    
+    h1 {
+      color: #1e3c72;
+      margin-bottom: 30px;
+    }
+    
+    h2 {
+      color: #2c3e50;
+      margin-top: 30px;
+      margin-bottom: 15px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid #ecf0f1;
+    }
+    
+    .endpoint {
+      background: #f8f9fa;
+      padding: 15px;
+      margin: 10px 0;
+      border-radius: 8px;
+      border-left: 4px solid #3498db;
+    }
+    
+    .method {
+      display: inline-block;
+      padding: 4px 8px;
+      border-radius: 4px;
+      font-weight: bold;
+      font-size: 12px;
+      margin-right: 10px;
+    }
+    
+    .get { background: #2ecc71; color: white; }
+    .post { background: #3498db; color: white; }
+    .put { background: #f39c12; color: white; }
+    .delete { background: #e74c3c; color: white; }
+    
+    .url {
+      font-family: monospace;
+      color: #2c3e50;
+      font-size: 14px;
+    }
+    
+    .description {
+      color: #7f8c8d;
+      margin-top: 5px;
+      font-size: 14px;
+    }
+    
+    .back-btn {
+      display: inline-block;
+      padding: 10px 20px;
+      background: #1e3c72;
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+  
+  <div class="container">
+    <a href="/" class="back-btn">← Back to Dashboard</a>
+    
+    <h1>🔌 API Documentation</h1>
+    <p>Complete API reference for Hospital Management System</p>
+    
+    <h2>🧍 Patients API</h2>
+    
+    <div class="endpoint">
+      <span class="method get">GET</span>
+      <span class="url">/api/patients/</span>
+      <div class="description">Get all patients (with pagination)</div>
+    </div>
+    
+    <div class="endpoint">
+      <span class="method get">GET</span>
+      <span class="url">/api/patients/{id}/</span>
+      <div class="description">Get specific patient details</div>
+    </div>
+    
+    <div class="endpoint">
+      <span class="method post">POST</span>
+      <span class="url">/api/patients/</span>
+      <div class="description">Create new patient</div>
+    </div>
+    
+    <div class="endpoint">
+      <span class="method put">PUT</span>
+      <span class="url">/api/patients/{id}/</span>
+      <div class="description">Update patient information</div>
+    </div>
+    
+    <div class="endpoint">
+      <span class="method delete">DELETE</span>
+      <span class="url">/api/patients/{id}/</span>
+      <div class="description">Delete patient</div>
+    </div>
+    
+    <div class="endpoint">
+      <span class="method get">GET</span>
+      <span class="url">/api/patients/count/</span>
+      <div class="description">Get total patient count</div>
+    </div>
+    
+    <div class="endpoint">
+      <span class="method get">GET</span>
+      <span class="url">/api/patients/search/?q={query}</span>
+      <div class="description">Search patients by name, email, phone, or medical ID</div>
+    </div>
+    
+    <h2>👨‍⚕️ Doctors API</h2>
+    
+    <div class="endpoint">
+      <span class="method get">GET</span>
+      <span class="url">/api/doctors/</span>
+      <div class="description">Get all doctors</div>
+    </div>
+    
+    <div class="endpoint">
+      <span class="method get">GET</span>
+      <span class="url">/api/doctors/available/</span>
+      <div class="description">Get only available doctors</div>
+    </div>
+    
+    <div class="endpoint">
+      <span class="method get">GET</span>
+      <span class="url">/api/doctors/by_specialization/?specialization={spec}</span>
+      <div class="description">Filter doctors by specialization</div>
+    </div>
+    
+    <h2>📅 Appointments API</h2>
+    
+    <div class="endpoint">
+      <span class="method get">GET</span>
+      <span class="url">/api/appointments/</span>
+      <div class="description">Get all appointments</div>
+    </div>
+    
+    <div class="endpoint">
+      <span class="method get">GET</span>
+      <span class="url">/api/appointments/today/</span>
+      <div class="description">Get today's appointments</div>
+    </div>
+    
+    <div class="endpoint">
+      <span class="method get">GET</span>
+      <span class="url">/api/appointments/upcoming/</span>
+      <div class="description">Get all upcoming appointments</div>
+    </div>
+    
+    <div class="endpoint">
+      <span class="method get">GET</span>
+      <span class="url">/api/appointments/recent/</span>
+      <div class="description">Get 10 most recent appointments</div>
+    </div>
+    
+    <div class="endpoint">
+      <span class="method get">GET</span>
+      <span class="url">/api/appointments/by_date_range/?start_date={date}&end_date={date}</span>
+      <div class="description">Filter appointments by date range</div>
+    </div>
+    
+    <div class="endpoint">
+      <span class="method get">GET</span>
+      <span class="url">/api/appointments/by_status/?status={status}</span>
+      <div class="description">Filter by status (Scheduled, Completed, Cancelled)</div>
+    </div>
+    
+    <h2>📋 Medical Records API</h2>
+    
+    <div class="endpoint">
+      <span class="method get">GET</span>
+      <span class="url">/api/medical/records/</span>
+      <div class="description">Get all medical records</div>
+    </div>
+    
+    <div class="endpoint">
+      <span class="method get">GET</span>
+      <span class="url">/api/medical/records/by_patient/?patient_id={id}</span>
+      <div class="description">Get medical records for specific patient</div>
+    </div>
+    
+    <h2>💊 Prescriptions API</h2>
+    
+    <div class="endpoint">
+      <span class="method get">GET</span>
+      <span class="url">/api/medical/prescriptions/</span>
+      <div class="description">Get all prescriptions</div>
+    </div>
+    
+    <div class="endpoint">
+      <span class="method get">GET</span>
+      <span class="url">/api/medical/prescriptions/by_patient/?patient_id={id}</span>
+      <div class="description">Get prescriptions for specific patient</div>
+    </div>
+    
+    <h2>🧪 Lab Tests API</h2>
+    
+    <div class="endpoint">
+      <span class="method get">GET</span>
+      <span class="url">/api/medical/lab-tests/</span>
+      <div class="description">Get all lab tests</div>
+    </div>
+    
+    <div class="endpoint">
+      <span class="method get">GET</span>
+      <span class="url">/api/medical/lab-tests/pending/</span>
+      <div class="description">Get all pending lab tests</div>
+    </div>
+    
+    <h2>💰 Invoices API</h2>
+    
+    <div class="endpoint">
+      <span class="method get">GET</span>
+      <span class="url">/api/medical/invoices/</span>
+      <div class="description">Get all invoices</div>
+    </div>
+    
+    <div class="endpoint">
+      <span class="method get">GET</span>
+      <span class="url">/api/medical/invoices/unpaid/</span>
+      <div class="description">Get all unpaid invoices</div>
+    </div>
+    
+    <div class="endpoint">
+      <span class="method get">GET</span>
+      <span class="url">/api/medical/invoices/total_revenue/</span>
+      <div class="description">Get total revenue collected</div>
+    </div>
+    
+  </div>
+  
+</body>
+</html>

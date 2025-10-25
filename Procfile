@@ -1,1 +1,2 @@
-web: gunicorn hospital_system.wsgi
+web: gunicorn hospital_system.wsgi:application
+
